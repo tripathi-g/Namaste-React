@@ -3,7 +3,7 @@
 Emmet is a plugin for text editors to improve productivity and speed. It provides a set of shortcuts that can be used to generate code.
 ## 2. Difference between Libary and Framework
 - The term library simply refers to a collection of code that is reused repeatedly. It comprises of a list of pre-defined function and classes that can be used to improve simplify tasks. React is a library.
-- Framework is a foundation upon which developers build application. It comes with its basic package which includes all the basic files required. We need to follow the structue and rules defined for the respective framework.
+- Framework is a foundation upon which developers build application. It comes with its basic package which includes all the basic files required. We need to follow the structure and rules defined for the respective framework.
 ## 3. What is CDN ? Why do we use it ?
 - A content delivery network (CDN) is a geographically distributed group of servers that caches content close to end users. This reduces load time, security and to reduce our actual server's bandwith usage. CDN sits between hosted server and client hence preventing DDOS attack on our servers.
 ## 4. Why is React known as React ?
