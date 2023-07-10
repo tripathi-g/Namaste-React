@@ -1,0 +1,13 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "cd \"02. Igniting our App\"": {
+      "name": "cd \"02. Igniting our App\"",
+      "command": "cd \"02. Igniting our App\"",
+      "runAtStart": true
+    }
+  }
+}
