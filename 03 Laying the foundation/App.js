@@ -8,7 +8,7 @@ import ReactDOM from "react-dom/client";
 //JSX code =>  React.createElement => ReactElement-JS Object => HTMLElement(render)
 const jsxHeading = (
   <div>
-    <h1 className="heading" tabINdex="5">
+    <h1 className="heading" tabIndex="5">
       Namaste React in JSX !
     </h1>
     <p>Testing</p>
@@ -18,15 +18,16 @@ const jsxHeading = (
 const HeadingComponent = () => {
   return (
     <>
-      <h1 className="heading" tabINdex="5">
+      <h1 className="heading" tabIndex="5">
         Namaste React Functional Component !
       </h1>
       <p>Testing</p>
+      {console.log(jsxHeading)}
     </>
   );
 };
 
-console.log(jsxHeading);
+
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(<HeadingComponent/>);
