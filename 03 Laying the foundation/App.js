@@ -17,12 +17,12 @@ const jsxHeading = (
 
 const HeadingComponent = () => {
   return (
-    <div>
+    <>
       <h1 className="heading" tabINdex="5">
         Namaste React Functional Component !
       </h1>
       <p>Testing</p>
-    </div>
+    </>
   );
 };
 
