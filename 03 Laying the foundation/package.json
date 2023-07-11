@@ -4,8 +4,8 @@
   "description": "This is namaste react 2nd lecture",
   "scripts": {
     "test": "jest",
-    "build": "npx parcel index.html",
-    "start": "npx serve"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "",
   "license": "ISC",
