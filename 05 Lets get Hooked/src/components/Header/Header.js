@@ -1,9 +1,9 @@
-import {LOGO_URL} from "/src/utils/config";
+import logo from "/img/khana.png";
 
 const Header = () => {
     return (
       <nav>
-        <img src={LOGO_URL} alt="logo" />
+        <img src={logo} alt="logo" />
         <ul>
           <li>Home</li>
           <li>About</li>
