@@ -7,13 +7,11 @@ const Body = () => {
   const [topResFilterStatus, setTopResFilterStatus] = useState(false);
 
   const filterTopResHandler = () => {
-    if (!topResFilterStatus){
+    if (!topResFilterStatus) {
       setResListLocal(resListLocal.filter((res) => res.data.avgRating >= 4));
-      
-      setTopResFilterStatus(true);
 
-    }
-    else{ 
+      setTopResFilterStatus(true);
+    } else {
       setResListLocal(resList);
       setTopResFilterStatus(false);
     }
@@ -26,7 +24,10 @@ const Body = () => {
           <input type="text" placeholder="Search" />
           <i className="fa fa-search"></i>
         </div>
-        <button className={"filter-btn"+ (topResFilterStatus ? " active" : "")} onClick={filterTopResHandler}>
+        <button
+          className={"filter-btn" + (topResFilterStatus ? " active" : "")}
+          onClick={filterTopResHandler}
+        >
           Top Restaurants
         </button>
       </div>
