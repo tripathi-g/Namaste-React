@@ -1,0 +1,51 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background:white;
+    flex-wrap: wrap;
+}
+
+nav img {
+    height: 4rem;
+    width: auto;
+}
+nav ul {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 2rem 1rem;
+    font-weight:500;
+    cursor: pointer;       
+    font-size: 0.8rem;
+}
+.login-btn{
+    border: unset;
+    width: 100px;
+    padding: 0.7rem;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width :700px) {
+    nav{
+        padding: 1rem;
+    }
+    nav ul li {
+        list-style: none;
+        padding: 1rem 0.5rem;
+        font-weight:500;
+        cursor: pointer;
+    }
+    .login-btn {
+        padding: 0.6rem;
+        width: auto;
+        font-weight:bold;
+    }
+}
