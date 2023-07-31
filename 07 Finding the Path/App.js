@@ -4,7 +4,9 @@ import Header from "./src/components/Header/Header";
 import Body from "./src/components/Body/Body";
 import Footer from "./src/components/Footer/Footer";
 import About from "./src/components/About/About";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Contact from "./src/components/Contact/Contact";
+import Error from "./src/components/Error/Error";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 
 const rootElement = ReactDOM.createRoot(document.querySelector("#root"));
 
@@ -12,7 +14,7 @@ const ResLayout = () => {
   return (
     <div className="res-layout">
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </div>
   );
@@ -22,10 +24,21 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <ResLayout />,
-  },
-  {
-    path: "/about",
-    element: <About />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
   },
 ]);
 
