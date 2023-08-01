@@ -3,7 +3,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>
-        Designed and Developed by Shantanu Tripathi during Namaste React Course
+        Khaana Khajana personal project by Shantanu Tripathi | Course - Namaste
+        React
       </p>
     </div>
   );
