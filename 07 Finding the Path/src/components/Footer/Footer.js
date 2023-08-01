@@ -1,6 +1,12 @@
+import "./Footer.css";
 const Footer = () => {
-    return <h1>This is Footer</h1>;
-  };
+  return (
+    <div className="footer">
+      <p>
+        Designed and Developed by Shantanu Tripathi during Namaste React Course
+      </p>
+    </div>
+  );
+};
 
-
-  export default Footer;
+export default Footer;

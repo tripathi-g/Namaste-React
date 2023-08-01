@@ -1,6 +1,14 @@
 import "./ResCard.css";
 const ResCard = (props) => {
-  const { name, avgRating, cuisines, cloudinaryImageId } = props.resData.info;
+  console.log(props);
+  const {
+    name,
+    avgRating,
+    cuisines,
+    cloudinaryImageId,
+    costForTwo,
+    sla: { deliveryTime },
+  } = props?.resData?.info;
   return (
     <div className="res-card">
       <div className="res-poster">
@@ -24,6 +32,8 @@ const ResCard = (props) => {
               <i className="fa fa-star"></i> {avgRating}
             </h4>
           )}
+          <h4 className="duration">{costForTwo} </h4>
+          <h4 className="duration">{deliveryTime} MINS</h4>
         </div>
         <p className="cusine">{cuisines.join(", ")}</p>
       </div>

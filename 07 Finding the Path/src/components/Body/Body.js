@@ -3,6 +3,7 @@ import ResCard from "/src/components/ResCard/ResCard";
 import { useState, useEffect } from "react";
 import { SWIGGY_API_URL } from "/src/utils/constants.js";
 import ShimmerBody from "./ShimmerBody";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -84,7 +85,15 @@ const Body = () => {
       </div>
       <div className="res-card-wrapper">
         {resListLocal.map((restaurant) => {
-          return <ResCard key={restaurant.info.id} resData={restaurant} />;
+          return (
+            <Link
+              className="res-card-link"
+              to={"/restaurant/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <ResCard resData={restaurant} />
+            </Link>
+          );
         })}
       </div>
     </div>

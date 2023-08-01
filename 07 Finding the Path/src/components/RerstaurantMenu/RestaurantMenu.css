@@ -1,0 +1,177 @@
+.res-menu-wrapper{
+    max-width:700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+.res-info-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius:8px;
+    box-shadow: 1px 1px 10px #d8d8d8;
+}
+.res-info-section1{
+    width: 65%;
+    padding: 1rem;
+}
+
+.res-name{
+    font-size: 1.1rem;
+    margin: 0;
+}
+.res-cuisines{
+    font-size: 0.7rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #494949;
+}
+.res-area-name, .res-last-mile{
+    font-size: 0.7rem;
+    color: #494949;
+    font-weight: 500;
+}
+
+
+.res-info-section2{
+    width:30%;
+}
+.rating-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    border:solid 1px #d8d8d8;
+    border-radius: 8px;
+    padding: 1rem;
+}
+.rating-wrapper h2{
+    color: #3d9b6d;
+    font-size: 0.8rem;
+    border-bottom: solid 1px #3d9b6e8f;
+    margin:0;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+.rating-wrapper p{
+    margin: 0;
+    text-align: center;
+    font-size: 0.6rem;
+    padding-top: 0.5rem;
+    color: #797979;
+    font-weight: 700;
+}
+
+.res-offers-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius:8px;
+    margin: 1rem 0;
+    box-shadow: 1px 1px 10px #d8d8d8;
+}
+.delivery-time, .cost-for-two{
+    display: inline;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+.res-offers-wrapper .row2{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.res-offers-wrapper .row2::-webkit-scrollbar{
+    display: none;
+}
+.offer-wrapper{
+    min-width: 155px;
+    margin-right: 0.6rem;
+    padding: 0.4rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.offer-logo{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.offer-header-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem
+
+}
+.offer-header{
+    font-size: 0.7rem;
+    color: #6d6d6d;
+}
+.d-flex{
+    display: flex;
+}
+
+.offer-footer{
+    font-size: 0.5rem;
+    color: #6d6d6d;
+    margin: 0;
+    text-align: center;
+}
+
+.menu-category{
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    
+}
+.menu-category-header{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+.menu-category-title{
+    margin: 0;
+    font-size: 0.9rem;
+    width: 80%;
+}
+
+.menu-item{
+    border-bottom: 1px solid #d8d8d8;
+    padding: 1rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-info{
+    width: 70%;    
+}
+.menu-item-name{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.menu-item-price{
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 0.4rem;
+}
+.menu-item-desc{
+    font-size: 0.7rem;
+    font-weight: 300;
+    max-height: 2rem;
+    overflow: hidden;
+    margin: 0;
+    width: 80%;
+}
+.menu-item-image{
+    width: 100%;
+    min-height: 80px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 8px;
+    object-fit:cover ;
+    display: block;
+}
