@@ -177,6 +177,7 @@
 .btn-show-hide{
     border: 0;
     background-color: unset;
+    cursor: pointer;
 }
 .hide{
     display:none;
