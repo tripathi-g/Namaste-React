@@ -33,7 +33,6 @@
     font-weight: 500;
 }
 
-
 .res-info-section2{
     width:30%;
 }
@@ -174,4 +173,11 @@
     border-radius: 8px;
     object-fit:cover ;
     display: block;
+}
+.btn-show-hide{
+    border: 0;
+    background-color: unset;
+}
+.hide{
+    display:none;
 }

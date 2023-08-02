@@ -3,15 +3,51 @@ import vegIcon from "../../../../img/veg.png";
 import nonVegIcon from "../../../../img/nonVeg.png";
 const ResMenuCategories = (props) => {
   const { title, itemCards } = props?.category?.card?.card;
+
+  const showHideMenuCategory = (e) => {
+    if (e.target.parentNode.nodeName === "BUTTON") {
+      const categoryHeader = e.target.parentNode.parentNode;
+      const categoryBody = categoryHeader.nextElementSibling;
+      showHideElement(categoryBody, e.target);
+    } else {
+      const categoryHeader = e.target.parentNode;
+      const categoryBody = categoryHeader.nextElementSibling;
+      showHideElement(categoryBody, e.target.children[0]);
+    }
+  };
+
+  const showHideElement = (element, icon) => {
+    if (element.classList.contains("hide")) {
+      element.classList.remove("hide"); //display the menu items
+      icon.classList.remove("fa-sort-desc");
+      icon.classList.add("fa-sort-asc");
+    } else {
+      element.classList.add("hide");
+      icon.classList.remove("fa-sort-asc");
+      icon.classList.add("fa-sort-desc");
+    }
+  };
   return (
     <div className="menu-category">
       <div className="menu-category-header">
         <h2 className="menu-category-title">
           {title + " (" + itemCards.length + ")"}
         </h2>
-        <i className="fa fa-sort-desc"></i>
+        <button className="btn-show-hide" onClick={showHideMenuCategory}>
+          <i
+            className={
+              title === "Recommended" ? "fa fa-sort-asc" : "fa fa-sort-desc"
+            }
+          ></i>
+        </button>
       </div>
-      <div className="menu-category-body">
+      <div
+        className={
+          title === "Recommended"
+            ? "menu-category-body"
+            : "menu-category-body hide"
+        }
+      >
         {itemCards.map((menuItem) => {
           const { name, defaultPrice, price, isVeg, description, imageId, id } =
             menuItem?.card?.info;
