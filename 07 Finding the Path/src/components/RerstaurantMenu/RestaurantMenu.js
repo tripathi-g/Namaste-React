@@ -99,7 +99,9 @@ const RestaurantMenu = () => {
 
         {resMenuCategories.map((category) => {
           const { title, itemCards } = category?.card?.card;
-          return itemCards !== undefined && title !== undefined ? (
+          return itemCards !== undefined &&
+            title !== undefined &&
+            itemCards.length !== 0 ? (
             <ResMenuCategories key={title} category={category} />
           ) : (
             ""
