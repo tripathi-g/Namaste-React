@@ -1,6 +1,5 @@
 import "./ResCard.css";
 const ResCard = (props) => {
-  console.log(props);
   const {
     name,
     avgRating,

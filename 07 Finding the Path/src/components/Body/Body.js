@@ -28,7 +28,6 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(SWIGGY_API_URL);
     const json = await data.json();
-    console.log(json);
     json?.data?.cards.map((card, i) => {
       card.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined
         ? updateResList(i, card)
@@ -48,7 +47,6 @@ const Body = () => {
       )
     );
   };
-  console.log(resListLocal);
   return resListLocal.length === 0 ? (
     <ShimmerBody />
   ) : (

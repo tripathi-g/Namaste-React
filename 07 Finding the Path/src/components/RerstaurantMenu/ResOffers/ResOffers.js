@@ -7,7 +7,6 @@ const ResOffers = (props) => {
   } = props?.resInfo;
 
   const resOffers = props?.resOffers;
-
   return (
     <div className="res-offers-wrapper">
       <div className="row1">
