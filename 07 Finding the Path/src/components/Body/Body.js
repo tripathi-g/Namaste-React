@@ -29,23 +29,16 @@ const Body = () => {
     const data = await fetch(SWIGGY_API_URL);
     const json = await data.json();
     console.log(json);
-    if (
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants != undefined
-    ) {
-      updateResList(3, json);
-    } else {
-      updateResList(5, json);
-    }
+    json?.data?.cards.map((card, i) => {
+      card.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined
+        ? updateResList(i, card)
+        : "";
+    });
   };
 
-  const updateResList = (i, json) => {
-    setResList(
-      json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setResListLocal(
-      json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+  const updateResList = (i, card) => {
+    setResList(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setResListLocal(card.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const searchFilter = () => {
@@ -55,6 +48,7 @@ const Body = () => {
       )
     );
   };
+  console.log(resListLocal);
   return resListLocal.length === 0 ? (
     <ShimmerBody />
   ) : (
