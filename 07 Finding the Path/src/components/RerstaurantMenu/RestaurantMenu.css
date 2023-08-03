@@ -191,7 +191,7 @@
     height: 20px;
     border: 3px solid #ccc;
     background: #ccc;
-    border-radius: 15%;
+    border-radius: 6px;
     cursor: pointer;
     transition: 0.4s;
 }
@@ -209,8 +209,8 @@
     top: 0;
     left: 0;
     background: #fff;
-    border-radius: 20%;
-    transform: scale(0.8);
+    border-radius: 4px;
+    transform: scale(0.90);
     transition: 0.4s;
 }
 .veg-wrapper{
