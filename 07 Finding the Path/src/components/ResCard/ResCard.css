@@ -58,9 +58,9 @@
     background-color:#db7c38;
 }
 
-
 @media screen and (max-width:560px){
     .res-card{
+        width: 75vw;
         margin : 0 1rem 0 1rem;
     }
 }
