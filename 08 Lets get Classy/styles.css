@@ -8,3 +8,7 @@ body{
     margin: 0;
     background: #f5f4f4;
 }
+.res-layout{
+    min-height: 100vh;
+    position: relative;
+}

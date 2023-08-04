@@ -19,3 +19,5 @@ export const OFFER_LOGO_URL =
 export const MENU_ITEM_IMAGE_URL =
   CORS_PROXY +
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+export const GITHUB_USER_API = "https://api.github.com/users/";

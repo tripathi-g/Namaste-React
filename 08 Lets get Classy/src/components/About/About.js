@@ -1,6 +1,10 @@
+import "./About.css";
+import Info from "./Info";
+import InfoClass from "./InfoClass";
+
 const About = () => {
   return (
-    <>
+    <div className="about-wrapper">
       <h1>About Page</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -27,7 +31,15 @@ const About = () => {
         Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
         1.10.32.
       </p>
-    </>
+
+      <InfoClass
+        details={{
+          name: "Shantanu Tripathi",
+          location: "Mumbai",
+          github: "shantanu61000",
+        }}
+      />
+    </div>
   );
 };
 
