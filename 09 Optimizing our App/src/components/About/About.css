@@ -1,0 +1,27 @@
+.about-wrapper{
+    max-width: 700px;
+    padding: 1rem;
+    margin:0 auto;
+}
+
+.aboutus-info-wrapper{
+    padding: 2rem;
+    width:100%;
+    margin: 1rem auto;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.aboutus-info-body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.aboutus-info-body p{
+    margin-bottom: 0;
+}
+.aboutus-info-body img{
+    
+    max-width: 120px;
+    border-radius: 1rem;
+}
