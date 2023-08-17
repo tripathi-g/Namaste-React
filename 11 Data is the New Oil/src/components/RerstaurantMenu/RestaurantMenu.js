@@ -6,10 +6,10 @@ import ShimmerMenu from "./ShimmerMenu";
 import ResMenuInfo from "./ResMenuInfo/ResMenuInfo";
 import ResOffers from "./ResOffers/ResOffers";
 import ResMenuCategories from "./ResMenuCategories/ResMenuCategories";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resID } = useParams();
-
   const [
     resMenuRaw,
     resMenuCategories,
@@ -18,7 +18,7 @@ const RestaurantMenu = () => {
     setResMenuRaw,
     setResMenuCategories,
   ] = useRestaurantMenu(resID);
-
+  const [showCatIndex, setShowCatIndex] = useState(0);
   if (resMenuRaw.length === 0) {
     return <ShimmerMenu />;
   }
@@ -61,12 +61,19 @@ const RestaurantMenu = () => {
           />
         </div>
 
-        {resMenuCategories.map((category) => {
+        {resMenuCategories.map((category, index) => {
           const { title, itemCards } = category?.card?.card;
           return itemCards !== undefined &&
             title !== undefined &&
             itemCards.length !== 0 ? (
-            <ResMenuCategories key={title} category={category} />
+            <ResMenuCategories
+              key={title}
+              category={category}
+              showCatItems={index === showCatIndex ? true : false}
+              setShowCatIndex={() => {
+                setShowCatIndex(index);
+              }}
+            />
           ) : (
             ""
           );

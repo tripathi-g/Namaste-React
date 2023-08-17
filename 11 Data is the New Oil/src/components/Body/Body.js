@@ -75,7 +75,6 @@ const Body = () => {
               to={"/restaurant/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              {" "}
               {restaurant.info.promoted ? (
                 <ResCardPromoted resData={restaurant} />
               ) : (
