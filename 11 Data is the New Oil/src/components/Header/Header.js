@@ -1,10 +1,11 @@
 import "./Header.css";
 import logo from "/img/khana1.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import userContext from "../../utils/userContext";
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState(false);
-
+  const { userName } = useContext(userContext);
   const loginBtnHandler = () => {
     loginBtn ? setLoginBtn(false) : setLoginBtn(true);
   };
@@ -39,6 +40,9 @@ const Header = () => {
           >
             {loginBtn ? "Logout" : "Login"}
           </button>
+        </li>
+        <li className="list-none p-3 mr-2 font-bold cursor-pointer text-[0.8rem]">
+          {userName}
         </li>
       </ul>
     </nav>

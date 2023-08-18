@@ -70,9 +70,8 @@ const RestaurantMenu = () => {
               key={title}
               category={category}
               showCatItems={index === showCatIndex ? true : false}
-              setShowCatIndex={() => {
-                setShowCatIndex(index);
-              }}
+              setShowCatIndex={setShowCatIndex}
+              catIndex={index}
             />
           ) : (
             ""

@@ -2,9 +2,9 @@ import { useState } from "react";
 import MenuCategoryItems from "./MenuCategoryItems";
 const ResMenuCategories = (props) => {
   const { title, itemCards } = props?.category?.card?.card;
-  const { showCatItems, setShowCatIndex } = props;
+  const { showCatItems, setShowCatIndex, catIndex } = props;
   const showHideMenuCategory = () => {
-    setShowCatIndex();
+    showCatItems ? setShowCatIndex(null) : setShowCatIndex(catIndex);
   };
 
   return (

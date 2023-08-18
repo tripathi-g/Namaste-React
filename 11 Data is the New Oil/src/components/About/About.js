@@ -1,10 +1,18 @@
 import "./About.css";
 import Info from "./Info";
 import InfoClass from "./InfoClass";
+import userContext from "../../utils/userContext";
 
 const About = () => {
   return (
     <div className="max-w-3xl p-4 my-0 mx-auto about-wrapper">
+      <span className="pt-4 pb-8 block text-base font-bold text-center">
+        Logged in user name :
+        <userContext.Consumer>
+          {({ userName }) => <h4 className="inline">{userName}</h4>}
+        </userContext.Consumer>
+      </span>
+
       <h1 className="text-xl font-bold mb-4">About Page</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
