@@ -42,7 +42,7 @@ const Header = () => {
           </button>
         </li>
         <li className="list-none p-3 mr-2 font-bold cursor-pointer text-[0.8rem]">
-          {userName}
+          {loginBtn && "Welcome " + userName}
         </li>
       </ul>
     </nav>

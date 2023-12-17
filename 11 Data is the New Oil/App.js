@@ -17,9 +17,7 @@ const ResLayout = () => {
   const [userName, setUserName] = useState("Default Name");
 
   useEffect(() => {
-    setTimeout(() => {
-      setUserName(prompt("What is your name"));
-    }, 5000);
+    setUserName("Shantanu");
   }, []);
 
   return (
