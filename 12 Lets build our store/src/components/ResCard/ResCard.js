@@ -9,10 +9,10 @@ const ResCard = (props) => {
     sla: { deliveryTime },
   } = props?.resData?.info;
   return (
-    <div className="mt-0 mr-5 mb-10 ml-5 p-4 w-[250px] flex flex-col border border-stone-50 cursor-pointer hover:border-stone-300 res-card">
+    <div className="mt-0 mr-5 mb-10 ml-5 p-4 w-[250px] flex flex-col border border-stone-50 cursor-pointer rounded-lg hover:shadow-lg res-card">
       <div className="res-poster">
         <img
-          className="w-full h-[150px] object-cover"
+          className="w-full h-[150px] object-cover rounded-md"
           src={
             "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
             cloudinaryImageId
@@ -39,7 +39,7 @@ const ResCard = (props) => {
             {deliveryTime} MINS
           </h4>
         </div>
-        <p className="mt-0 mr-0 mb-4 ml-0 text-stone-700 text-[0.7rem] cusine">
+        <p className="m-0 text-stone-700 text-[0.7rem] cusine">
           {cuisines.join(", ")}
         </p>
       </div>
@@ -51,7 +51,7 @@ export const withPromoted = (ResCard) => {
   return (props) => {
     return (
       <div className="relative res-card-promoted">
-        <label className="absolute left-8 top-4 p-2 bg-black text-white text-[0.6rem]">
+        <label className="absolute left-7 top-4 p-2 rounded-sm bg-black text-white text-[0.6rem]">
           Promoted
         </label>
         <ResCard {...props} />

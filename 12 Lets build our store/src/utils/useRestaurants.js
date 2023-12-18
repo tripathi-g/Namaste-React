@@ -6,7 +6,9 @@ const useRestaurant = () => {
   const [resListLocal, setResListLocal] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    if (resList.length === 0 || resListLocal === 0) {
+      fetchData();
+    }
   }, []);
 
   const fetchData = async () => {

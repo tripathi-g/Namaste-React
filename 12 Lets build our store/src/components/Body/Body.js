@@ -39,8 +39,8 @@ const Body = () => {
     <ShimmerBody />
   ) : (
     <div className="max-w-7xl my-0 mx-auto body-comp">
-      <div className="flex justify-center items-center flex-wrap sub-header">
-        <div className="flex justify-center items-center relative flex-wrap w-1/2 my-12 mx-4 search-wrapper">
+      <div className="flex justify-center items-center gap-2 mt-8 mb-4 md:my-12">
+        <div className="flex justify-center items-center relative flex-wrap w-1/2">
           <input
             className="w-full p-3 rounded-md border border-solid border-stone-300 text-xs"
             type="text"
@@ -59,7 +59,7 @@ const Body = () => {
         </div>
         <button
           className={
-            "h-auto p-3 cursor-pointer font-bold text-xs border border-stone-700 filter-btn" +
+            "p-3 cursor-pointer font-medium text-xs border border-stone-700 rounded-md filter-btn" +
             (topResFilterStatus ? " active" : "")
           }
           onClick={filterTopResHandler}
@@ -67,7 +67,7 @@ const Body = () => {
           Top Restaurants
         </button>
       </div>
-      <div className="flex flex-wrap justify-center res-card-wrapper">
+      <div className="flex flex-wrap justify-center res-card-wrapper pb-16">
         {resListLocal.map((restaurant) => {
           return (
             <Link

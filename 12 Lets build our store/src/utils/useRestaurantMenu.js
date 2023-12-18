@@ -14,18 +14,28 @@ const useRestaurantMenu = (resID) => {
   const fetchMenuData = async () => {
     const data = await fetch(SWIGGY_RES_MENU + resID);
     const json = await data.json();
-
+    let menuIndex = 0;
+    let infoIndex = 0;
+    let offerIndex = 0;
+    if (json?.data?.cards.length === 6) {
+      menuIndex = 5;
+      infoIndex = 2;
+      offerIndex = 3;
+    } else {
+      menuIndex = 2;
+      infoIndex = 0;
+      offerIndex = 1;
+    }
+    console.log("Restaurant data: ", json);
     setResMenuRaw(json);
-    setResInfo(json?.data?.cards[0]?.card?.card?.info);
+    setResInfo(json?.data?.cards[infoIndex]?.card?.card?.info);
     setResOffers(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers
+      json?.data?.cards[offerIndex]?.card?.card?.gridElements?.infoWithStyle
+        ?.offers
     );
 
-    let arrCnt = 0;
-    if (json?.data?.cards.length === 4) arrCnt = 3;
-    else arrCnt = 2;
     setResMenuCategories(
-      json?.data?.cards[arrCnt]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+      json?.data?.cards[menuIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     );
   };
 

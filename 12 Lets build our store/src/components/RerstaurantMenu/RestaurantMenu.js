@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
   };
 
   return (
-    <div className="my-8 mx-auto px-4 py-0 max-w-[700px] res-menu-wrapper">
+    <div className="mt-8 mx-auto px-4 pb-10 max-w-[700px] res-menu-wrapper">
       <ResMenuInfo resInfo={resInfo} />
       <ResOffers resInfo={resInfo} resOffers={resOffers} />
       <div className="menu-wrapper">

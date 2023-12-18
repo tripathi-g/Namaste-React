@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MenuCategoryItems from "./MenuCategoryItems";
 const ResMenuCategories = (props) => {
   const { title, itemCards } = props?.category?.card?.card;
@@ -8,7 +7,7 @@ const ResMenuCategories = (props) => {
   };
 
   return (
-    <div className="mb-4 p-4 bg-white shadow-md shadow-stone-200 menu-category">
+    <div className="mb-4 p-4 bg-white shadow-md shadow-stone-200 menu-category rounded-md">
       <div
         className="flex justify-between items-center cursor-pointer menu-category-header"
         onClick={showHideMenuCategory}
@@ -22,7 +21,9 @@ const ResMenuCategories = (props) => {
           ></i>
         </button>
       </div>
-      {showCatItems && <MenuCategoryItems itemCards={itemCards} />}
+      {showCatItems && (
+        <MenuCategoryItems buttonToShow="add" itemCards={itemCards} />
+      )}
     </div>
   );
 };
