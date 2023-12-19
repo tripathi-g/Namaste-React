@@ -1,0 +1,2 @@
+var e=("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire9d56;e.register("jbhur",function(a,n){Object.defineProperty(a.exports,"__esModule",{value:!0,configurable:!0}),Object.defineProperty(a.exports,"default",{get:()=>i,set:void 0,enumerable:!0,configurable:!0});var o=e("ayMG0"),i=()=>(0,o.jsx)("div",{className:"footer",children:(0,o.jsx)("p",{children:"Khaana Khajana by Shantanu Tripathi | Course - Namaste React"})})});
+//# sourceMappingURL=Footer.1da28b73.js.map
