@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { SWIGGY_API_URL } from "./constants.js";
+import { useSelector, useDispatch } from "react-redux";
+import { setRestaurants } from "./restaurantSlice";
 
 const useRestaurant = () => {
-  const [resList, setResList] = useState([]);
-  const [resListLocal, setResListLocal] = useState([]);
+  const restaurants = useSelector((store) => store.restaurants.items);
+  const dispatch = useDispatch();
+  console.log(restaurants);
+  const [resList, setResList] = useState(restaurants);
+  const [resListLocal, setResListLocal] = useState(restaurants);
 
   useEffect(() => {
     if (resList.length === 0 || resListLocal === 0) {
+      console.log("Fetching Data: ....");
       fetchData();
     }
   }, []);
@@ -15,13 +21,14 @@ const useRestaurant = () => {
     const data = await fetch(SWIGGY_API_URL);
     const json = await data.json();
     json?.data?.cards.map((card) => {
-      if (
-        card.card?.card?.gridElements?.infoWithStyle?.restaurants != undefined
-      ) {
-        setResList(card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setResListLocal(
-          card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        );
+      const restaurants =
+        card?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      if (restaurants != undefined) {
+        console.log("Data fetch complete: ", restaurants);
+        console.log("Set Data");
+        dispatch(setRestaurants(restaurants));
+        setResList(restaurants);
+        setResListLocal(restaurants);
       }
     });
   };

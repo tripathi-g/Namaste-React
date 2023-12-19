@@ -2,26 +2,55 @@ import "./RestaurantMenu.css";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import ShimmerMenu from "./ShimmerMenu";
-
+import { useEffect, useState } from "react";
 import ResMenuInfo from "./ResMenuInfo/ResMenuInfo";
 import ResOffers from "./ResOffers/ResOffers";
 import ResMenuCategories from "./ResMenuCategories/ResMenuCategories";
-import { useState } from "react";
-
 const RestaurantMenu = () => {
   const { resID } = useParams();
-  const [
-    resMenuRaw,
-    resMenuCategories,
-    resInfo,
-    resOffers,
-    setResMenuRaw,
-    setResMenuCategories,
-  ] = useRestaurantMenu(resID);
+  const [resMenuCategories, setResMenuCategories] = useState([]);
+  const [resInfo, setResInfo] = useState([]);
+  const [resOffers, setResOffers] = useState([]);
+  const [resMenuRaw, setResMenuRaw] = useRestaurantMenu(resID);
   const [showCatIndex, setShowCatIndex] = useState(0);
-  if (resMenuRaw.length === 0) {
+
+  useEffect(() => {
+    if (resMenuRaw) {
+      let menuIndex = 0;
+      let infoIndex = 0;
+      let offerIndex = 0;
+      if (resMenuRaw?.data?.cards.length === 6) {
+        menuIndex = 5;
+        infoIndex = 2;
+        offerIndex = 3;
+      } else {
+        menuIndex = 2;
+        infoIndex = 0;
+        offerIndex = 1;
+      }
+      setResInfo(resMenuRaw?.data?.cards[infoIndex]?.card?.card?.info);
+      setResOffers(
+        resMenuRaw?.data?.cards[offerIndex]?.card?.card?.gridElements
+          ?.infoWithStyle?.offers
+      );
+
+      setResMenuCategories(
+        resMenuRaw?.data?.cards[menuIndex]?.groupedCard?.cardGroupMap?.REGULAR
+          ?.cards
+      );
+    }
+  }, [resMenuRaw]);
+
+  if (
+    !resMenuRaw ||
+    resOffers.length === 0 ||
+    resInfo.length === 0 ||
+    resMenuCategories.length === 0
+  ) {
     return <ShimmerMenu />;
   }
+
+  console.log(resMenuRaw, resOffers, resInfo, resMenuCategories);
 
   const btnVegHandler = (e) => {
     if (e.target.checked) {
