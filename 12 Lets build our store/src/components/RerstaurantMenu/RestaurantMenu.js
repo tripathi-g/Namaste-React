@@ -33,11 +33,19 @@ const RestaurantMenu = () => {
         resMenuRaw?.data?.cards[offerIndex]?.card?.card?.gridElements
           ?.infoWithStyle?.offers
       );
-
-      setResMenuCategories(
+      let categories =
         resMenuRaw?.data?.cards[menuIndex]?.groupedCard?.cardGroupMap?.REGULAR
-          ?.cards
-      );
+          ?.cards;
+      categories = categories.filter((category) => {
+        const { title, itemCards } = category?.card?.card;
+        if (
+          itemCards !== undefined &&
+          title !== undefined &&
+          itemCards.length !== 0
+        )
+          return category;
+      });
+      setResMenuCategories(categories);
     }
   }, [resMenuRaw]);
 
@@ -50,7 +58,7 @@ const RestaurantMenu = () => {
     return <ShimmerMenu />;
   }
 
-  console.log(resMenuRaw, resOffers, resInfo, resMenuCategories);
+  // console.log(resMenuRaw, resOffers, resInfo, resMenuCategories);
 
   const btnVegHandler = (e) => {
     if (e.target.checked) {
@@ -91,19 +99,15 @@ const RestaurantMenu = () => {
         </div>
 
         {resMenuCategories.map((category, index) => {
-          const { title, itemCards } = category?.card?.card;
-          return itemCards !== undefined &&
-            title !== undefined &&
-            itemCards.length !== 0 ? (
+          const { title } = category?.card?.card;
+          return (
             <ResMenuCategories
               key={title}
               category={category}
-              showCatItems={index === showCatIndex ? true : false}
+              showCatItems={index === showCatIndex}
               setShowCatIndex={setShowCatIndex}
               catIndex={index}
             />
-          ) : (
-            ""
           );
         })}
       </div>

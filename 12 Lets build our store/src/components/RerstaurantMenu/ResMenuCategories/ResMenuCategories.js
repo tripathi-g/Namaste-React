@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import MenuCategoryItems from "./MenuCategoryItems";
 const ResMenuCategories = (props) => {
   const { title, itemCards } = props?.category?.card?.card;
   const { showCatItems, setShowCatIndex, catIndex } = props;
+
   const showHideMenuCategory = () => {
     showCatItems ? setShowCatIndex(null) : setShowCatIndex(catIndex);
   };

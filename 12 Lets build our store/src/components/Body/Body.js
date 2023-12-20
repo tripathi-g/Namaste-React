@@ -23,39 +23,41 @@ const Body = () => {
     }
   };
 
-  const searchFilter = () => {
-    setResListLocal(
-      resList.filter((res) =>
-        res.info.name.toLowerCase().includes(searchText.toLowerCase())
-      )
-    );
-  };
-
   if (!onlineStatus) {
     return <OfflineComponent />;
   }
 
-  return resListLocal.length === 0 ? (
+  useEffect(() => {
+    setResListLocal(
+      resList.filter(
+        (res) =>
+          res.info.name
+            .toLowerCase()
+            .includes(searchText.toLowerCase().trim()) ||
+          res.info.cuisines
+            .join(",")
+            .toLowerCase()
+            .includes(searchText.toLowerCase().trim())
+      )
+    );
+  }, [searchText]);
+
+  return resList.length === 0 ? (
     <ShimmerBody />
   ) : (
     <div className="max-w-7xl my-0 mx-auto body-comp">
       <div className="flex justify-center items-center gap-2 mt-8 mb-4 md:my-12">
         <div className="flex justify-center items-center relative flex-wrap w-1/2">
           <input
-            className="w-full p-3 rounded-md border border-solid border-stone-300 text-xs"
+            className="w-full p-3 rounded-md border border-solid border-stone-300 text-xs placeholder:text-[0.6rem] md:placeholder:text-xs"
             type="text"
-            placeholder="Search"
+            placeholder="Search Restaurants or Dishes"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <i
-            className="fa fa-search absolute right-8 z-10 text-stone-600 cursor-pointer"
-            onClick={() => {
-              searchFilter();
-            }}
-          ></i>
+          <i className="fa fa-search absolute right-4 md:right-8 z-10 text-stone-400 cursor-pointer"></i>
         </div>
         <button
           className={
@@ -64,25 +66,31 @@ const Body = () => {
           }
           onClick={filterTopResHandler}
         >
-          Top Restaurants
+          Top Rated
         </button>
       </div>
       <div className="flex flex-wrap justify-center res-card-wrapper pb-16">
-        {resListLocal.map((restaurant) => {
-          return (
-            <Link
-              className="text-black cursor-pointer no-underline res-card-link"
-              to={"/restaurant/" + restaurant.info.id}
-              key={restaurant.info.id}
-            >
-              {restaurant.info.promoted ? (
-                <ResCardPromoted resData={restaurant} />
-              ) : (
-                <ResCard resData={restaurant} />
-              )}
-            </Link>
-          );
-        })}
+        {resListLocal.length !== 0 ? (
+          resListLocal.map((restaurant) => {
+            return (
+              <Link
+                className="text-black cursor-pointer no-underline res-card-link"
+                to={"/restaurant/" + restaurant.info.id}
+                key={restaurant.info.id}
+              >
+                {restaurant.info.promoted ? (
+                  <ResCardPromoted resData={restaurant} />
+                ) : (
+                  <ResCard resData={restaurant} />
+                )}
+              </Link>
+            );
+          })
+        ) : (
+          <p className="p-8">
+            No restaurant was found with name '{searchText}'
+          </p>
+        )}
       </div>
     </div>
   );

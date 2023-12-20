@@ -6,7 +6,6 @@ import { setRestaurants } from "./restaurantSlice";
 const useRestaurant = () => {
   const restaurants = useSelector((store) => store.restaurants.items);
   const dispatch = useDispatch();
-  console.log(restaurants);
   const [resList, setResList] = useState(restaurants);
   const [resListLocal, setResListLocal] = useState(restaurants);
 
