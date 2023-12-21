@@ -75,14 +75,27 @@ const RestaurantMenu = () => {
       setResMenuCategories(filteredCategories);
     } else {
       let i = 0;
-      if (resMenuRaw?.data?.cards.length === 4) i = 3;
-      else i = 2;
-      const bothVegNonVegMenu =
-        resMenuRaw.data.cards[i].groupedCard.cardGroupMap.REGULAR.cards;
+      if (resMenuRaw?.data?.cards.length === 6) {
+        i = 5;
+      } else {
+        i = 2;
+      }
+
+      const bothVegNonVegMenu = resMenuRaw?.data?.cards[
+        i
+      ]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((category) => {
+        const { title, itemCards } = category?.card?.card;
+        if (
+          itemCards !== undefined &&
+          title !== undefined &&
+          itemCards.length !== 0
+        )
+          return category;
+      });
       setResMenuCategories(bothVegNonVegMenu);
     }
   };
-
+  // console.log("categories: ", resMenuCategories);
   return (
     <div className="mt-8 mx-auto px-4 pb-10 max-w-[700px] res-menu-wrapper">
       <ResMenuInfo resInfo={resInfo} />
