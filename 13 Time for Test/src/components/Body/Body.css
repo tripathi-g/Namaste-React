@@ -1,0 +1,51 @@
+
+.filter-btn.active{
+    background-color: #FF7300;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #FF7300;
+}
+
+@media screen and (max-width:750px){
+    .body-comp, .shimmer-comp{
+        width: 100%;
+        padding: 0;
+    }
+    .sub-header{
+        margin-top: 1rem;
+    }
+    .body-comp .search-wrapper{
+        width: 60%;
+        margin: 0 1rem;
+    }
+    .shimmer-comp .sub-header{
+        margin: 0;
+    }
+    .shimmer-search-wrapper{
+        width: 60%;
+        margin: 1rem;
+    }
+    .shimmer-head-btn{
+        width: 25%;
+    }
+  
+    .shimmer-card{
+        width: 300px;
+        margin: 1rem 0 0 0;
+    }
+    
+    
+}
+@media screen and (max-width:385px){
+    .body-comp .search-wrapper{
+        width: 80%;
+    }   
+}
+
+@media screen and (max-width:560px){
+    .shimmer-card{
+        width: 80%;
+    }
+}
+
+

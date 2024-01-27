@@ -1,0 +1,25 @@
+.shimmer-menu-wrapper{
+    max-width:700px;
+    margin: 2rem auto 0  auto;
+    padding: 1rem 1rem 4rem 1rem;
+}
+
+.shimmer-menu-wrapper .shimmer-res-info{
+    height: 100px;
+    background-color: #e6e6e6;
+    margin-bottom: 1rem;
+}
+.shimmer-res-offers{
+    height: 100px;
+    background-color: #e6e6e6;
+    margin-bottom: 1rem;
+}
+.shimmer-menu-item-wrapper{
+    background-color: #e6e6e6;
+    padding: 1rem;
+}
+.shimmer-menu-item{
+    height: 50px;
+    margin-bottom: 1rem;
+    background-color: #d8d8d8;
+}
