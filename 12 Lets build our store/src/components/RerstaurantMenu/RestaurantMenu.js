@@ -86,8 +86,8 @@ const RestaurantMenu = () => {
       setResMenuCategories(filteredCategories);
     } else {
       let i = 0;
-      if (resMenuRaw?.data?.cards.length === 6) {
-        i = 5;
+      if (resMenuRaw?.data?.cards.length === 5) {
+        i = 4;
       } else {
         i = 2;
       }
