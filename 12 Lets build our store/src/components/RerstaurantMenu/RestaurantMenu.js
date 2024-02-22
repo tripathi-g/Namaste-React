@@ -16,11 +16,13 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     if (resMenuRaw) {
+      console.log(resMenuRaw);
+
       let menuIndex = 0;
       let infoIndex = 0;
       let offerIndex = 0;
-      if (resMenuRaw?.data?.cards.length === 6) {
-        menuIndex = 5;
+      if (resMenuRaw?.data?.cards.length === 5) {
+        menuIndex = 4;
         infoIndex = 2;
         offerIndex = 3;
       } else {
@@ -28,6 +30,14 @@ const RestaurantMenu = () => {
         infoIndex = 0;
         offerIndex = 1;
       }
+      console.log(
+        "Menu Index",
+        menuIndex,
+        "Info Index",
+        infoIndex,
+        "Offer Index",
+        offerIndex
+      );
       setResInfo(resMenuRaw?.data?.cards[infoIndex]?.card?.card?.info);
       setResOffers(
         resMenuRaw?.data?.cards[offerIndex]?.card?.card?.gridElements
@@ -36,6 +46,7 @@ const RestaurantMenu = () => {
       let categories =
         resMenuRaw?.data?.cards[menuIndex]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards;
+
       categories = categories.filter((category) => {
         const { title, itemCards } = category?.card?.card;
         if (
